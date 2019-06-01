@@ -1,6 +1,8 @@
 [![Build Status](https://img.shields.io/travis/philipptrenz/photo-booth.svg)](https://travis-ci.org/philipptrenz/photo-booth)
 [![npm version](https://badge.fury.io/js/%40philipptrenz%2Fphoto-booth.svg)](https://badge.fury.io/js/%40philipptrenz%2Fphoto-booth)
 
+Fork of Philipp Trenz' awesome photobooth. I added watermarks to the downloaded pictures using [text-to-svg](https://www.npmjs.com/package/text-to-svg).
+
 # photo-booth
 
 A multi-platform photo booth software using Electron and your camera
