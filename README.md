@@ -45,6 +45,9 @@ Before getting started please check [here](#Unsupported-devices) if the hardware
 sudo apt update
 sudo apt install git libxss-dev libgconf-2-4 libnss3
 
+# Install text-to-svg for the watermarks
+sudo npm install --save text-to-svg
+
 # Install latest version of libgphoto2, choose last stable release
 wget https://raw.githubusercontent.com/gonzalo/gphoto2-updater/master/gphoto2-updater.sh && sudo bash gphoto2-updater.sh
 
@@ -107,30 +110,42 @@ It looks like this:
 {
 	"init": {
 		"fullscreen": true,
-		"width": "1440",
-		"height": "900",
+		"width": 1440,
+		"height": 900,
 		"showDevTools": false,
-		"useGPIO": false,
-		"grayscaleMode": true,
-		"preventScreensaver": false
+		"useGPIO": true,
+		"grayscaleMode": false,
+		"preventScreensaver": true
 	},
-	"maxImageSize": 1500,
-	"countdownLength": 5,
+	"maxImageSize": "1500",
+	"firstPhotoCountdownLength": "5",
+	"followingPhotosCountdownLength": "3",
+	"photoPreviewDuration": "8",
+	"photoSeriesLength": "3",
 	"slideshow": {
 		"enabled": true,
-		"activatesAfterSeconds": 30,
-		"secondsPerImages": 8
+		"activatesAfterSeconds": "30",
+		"secondsPerPhoto": "8"
 	},
 	"gphoto2": {
 		"capturetarget": 1,
 		"keep": true
 	},
-	"content_dir": null,
+	"triggers": {
+		"onClick": true,
+		"customKeys": ["PageUp","PageDown","b"]
+	},
+	"content_dir": "../content",
 	"webapp": {
 		"password": "test",
 		"maxDownloadImageSize": 800,
 		"enableRemoteRelease": true
 	},
+	"watermark": {
+	"text": "Watermark Text",
+	"fontsize": 30,
+	"color": "red"
+	},	
 	"branding": {
 		"type": "text",
 		"content": "<div style='font-size: 1.2em; padding-left: 25px;'><i class='fa fa-wifi' aria-hidden='true' style='font-size: 2.5em;'></i> <b style='font-size: 2em; padding-left: 15px;'>photo-booth</b><br /><p>Log into wifi, browse to <b style='padding: 0 5px;'>photo.app</b> and download your photos!</p></div>",
